@@ -1,5 +1,26 @@
-# IA
+# About the code
 
-### Repositório para guardar as atividades e trabalhos da disciplina de Fundamentos de Inteligência Artificial.
+* This code is a basic agent AC that receives rules, and based on the environment, change its state and the environment.
+* It has the capability of always getting to the specified temperature.
 
-* Atividade 1 - Aula 2 ➡️ branch atividade-1
+# Running
+
+```sh
+# clone into your machine
+https://github.com/rricoldi/IA.git
+
+# enter the folder
+cd IA
+
+# change branch
+git checkout atividade-1
+
+# install deno
+curl -fsSL https://deno.land/x/install/install.sh | sh
+# (windows powershell) iwr https://deno.land/x/install/install.ps1 -useb | iex
+# (mac) brew install deno
+
+
+# run deno program with flags
+deno run src/index.ts
+```
