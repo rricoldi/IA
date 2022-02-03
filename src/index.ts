@@ -1,52 +1,44 @@
 import { Agent } from "./entities/Agent.ts";
 import { Environment } from "./entities/Environment.ts";
-import { IState, Power } from "./interfaces/State.ts";
+import { IState } from "./interfaces/State.ts";
+import { getNumberCloserToGoal } from "./utils/getNumberCloserToGoal.ts";
 
-const environment = new Environment(3, 34);
-const objective = new Environment(0, 18);
+const environment = new Environment(3);
 
 const state: IState = {
-  temperature: 0,
-  power: Power.low,
-  isOn: false,
+  story: 0,
+  isDoorOpen: false,
+  goalStory: 0,
+  callQueue: [],
 };
 
 
-const rulesFunction = (environment: Environment, currentState: IState, objective: Environment): IState => {
-  const currentTemperature = environment.getTemperature();
-  const idealTemperature = objective.getTemperature();
+const rulesFunction = (environment: Environment, currentState: IState): IState => {
+  if(!(currentState.callQueue.find(item => item === environment.storyCalling) || currentState.goalStory === environment.storyCalling)) // rule 4
+    currentState.callQueue.push(environment.storyCalling);
 
-
-  if(currentTemperature === idealTemperature) {
-    currentState.isOn = false;
-    return currentState;
-  }
-
-  currentState.temperature = idealTemperature;
-  currentState.isOn = true;
-
-  if(Math.abs(currentTemperature - idealTemperature) > 10) {
-    currentState.power = Power.high;
-  } else if(Math.abs(currentTemperature - idealTemperature) > 5) {
-    currentState.power = Power.medium;
-  } else {
-    currentState.power = Power.low;
+  if(currentState.story === currentState.goalStory) { // rule 1
+    currentState.isDoorOpen = true;
+    currentState.goalStory = currentState.callQueue.shift() ?? currentState.story;
+  } else { // rule 2 and 3
+    currentState.isDoorOpen = false;
+    currentState.story = getNumberCloserToGoal(currentState.story, currentState.goalStory);
   }
 
   return currentState;
 }
 
-const agent = new Agent(rulesFunction, state, objective)
+const agent = new Agent(rulesFunction, state);
 
-for(let i = 0; i < 15; i++) {
-  environment.updateEnvironment(agent.state);
+for (let i = 0; i < 15; i++) {
+  environment.updateEnvironment();
   agent.update(environment);
   const log =
     [`===================================`,
-    `Temperatura do ambient: ${environment.getTemperature()} °C`,
-    `Temperatura ideal: ${objective.getTemperature()} °C`,
-    `Ar condicionado ${agent.state.isOn ? 'ligado' : 'desligado'}.`,
-    `Potência do ar condicionado: ${agent.state.power}`,
+    `Andar atual: ${agent.state.story}`,
+    `Elevador está ${agent.state.story !== agent.state.goalStory ? `indo para o ${agent.state.goalStory}° andar` : `parado`}`,
+    `Porta está ${agent.state.isDoorOpen ? `aberta` : `fechada`}`,
+    `Próximos andares programados para ir: ${agent.state.callQueue}`,
     `===================================`,]
   
   console.log(log.join('\n'))

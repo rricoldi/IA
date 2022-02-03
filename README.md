@@ -1,7 +1,7 @@
 # About the code
 
-* This code is a basic agent AC that receives rules, and based on the environment, change its state and the environment.
-* It has the capability of always getting to the specified temperature.
+* This code is a basic agent elevator that receives rules, and based on the environment, change its state and the environment.
+* It has the capability of always getting to the called story.
 
 # Running
 
