@@ -1,7 +1,40 @@
 # About the code
 
-* This code is a basic agent elevator that receives rules, and based on the environment, change its state and the environment.
-* It has the capability of always getting to the called story.
+* This code represents a graph.
+* It has methods to do a Depth First Search and a Iterative Depth First Search.
+
+# Executing the binaries
+
+* In order to run you can just use one of the following commands
+
+```sh
+./renan.o
+
+# windows > renan.exe
+```
+
+# Exectuion example
+
+```
+A -> B, C
+B -> D
+C -> E, F
+D -> G
+E ->
+F ->
+G ->
+
+Height: 4
+
+Depth First Search: A, B, D, G
+
+Iterative Depth First Search:
+Limit: 1 | Search: Not found
+Limit: 2 | Search: Not found
+Limit: 3 | Search: Not found
+Limit: 4 | Search: A, B, D, G
+```
+
 
 # Running
 
@@ -13,7 +46,7 @@ https://github.com/rricoldi/IA.git
 cd IA
 
 # change branch
-git checkout atividade-1
+git checkout atividade-3
 
 # install deno
 curl -fsSL https://deno.land/x/install/install.sh | sh
