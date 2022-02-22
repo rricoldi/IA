@@ -4,3 +4,4 @@
 
 * Atividade 1 - Aula 2 ➡️ branch atividade-1
 * Atividade 2 - Aula 3 ➡️ branch atividade-2
+* Atividade 3 - Aula 6 ➡️ branch atividade-3
