@@ -1,7 +1,7 @@
 # About the code
 
-* This code represents a graph.
-* It has methods to do a Depth First Search and a Iterative Depth First Search.
+* This code represents a A* algorithm.
+* It has methods to get the best positions from origin to goal.
 
 # Executing the binaries
 
@@ -16,23 +16,18 @@
 # Exectuion example
 
 ```
-A -> B, C
-B -> D
-C -> E, F
-D -> G
-E ->
-F ->
-G ->
-
-Height: 4
-
-Depth First Search: A, B, D, G
-
-Iterative Depth First Search:
-Limit: 1 | Search: Not found
-Limit: 2 | Search: Not found
-Limit: 3 | Search: Not found
-Limit: 4 | Search: A, B, D, G
+[
+  { x: -3, y: -15 }, { x: -2, y: -14 },
+  { x: -1, y: -13 }, { x: 0, y: -12 },
+  { x: 1, y: -11 },  { x: 2, y: -10 },
+  { x: 3, y: -9 },   { x: 4, y: -8 },
+  { x: 5, y: -7 },   { x: 6, y: -6 },
+  { x: 7, y: -5 },   { x: 8, y: -4 },
+  { x: 9, y: -3 },   { x: 10, y: -2 },
+  { x: 10, y: -1 },  { x: 10, y: 0 },
+  { x: 10, y: 1 },   { x: 10, y: 2 },
+  { x: 10, y: 3 },   { x: 10, y: 4 }
+]
 ```
 
 

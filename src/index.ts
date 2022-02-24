@@ -1,45 +1,5 @@
-import { Graph } from "./entities/Graph.ts";
+import { Grid } from "./entities/Grid.ts";
 
-const graph = new Graph([
-  {
-    index: 'A',
-    neighbors: ['B', 'C'],
-  },
-  {
-    index: 'B',
-    neighbors: ['D'],
-  },
-  {
-    index: 'C',
-    neighbors: ['E', 'F'],
-  },
-  {
-    index: 'D',
-    neighbors: ['G'],
-  },
-  {
-    index: 'E',
-    neighbors: [],
-  },
-  {
-    index: 'F',
-    neighbors: [],
-  },
-  {
-    index: 'G',
-    neighbors: [],
-  }
-]);
+const grid = new Grid({ x: -20, y: -20 }, { x: 10, y: 10 });
 
-graph.print();
-
-console.log(`\nHeight: ${graph.getHeight()}`);
-
-const DFSResult = graph.depthFirstSearch('G');
-
-if(!DFSResult) 
-  console.log('\n---------------\nItem not found!\n---------------')
-else
-  console.log(`\nDepth First Search: ${DFSResult.join(', ')}`);
-
-graph.iterativeDepthFirstSearch('G');
+console.log(grid.aStar({ x: -3, y: -15 }, { x: 10, y: 4 }))
