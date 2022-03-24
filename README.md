@@ -1,33 +1,60 @@
+# **TIC TAC TOE**
+
+* This code represents a **TIC TAC TOE** game.
+* You can play against a machine with the symbol ⭕.
+
 # About the code
+* The machine A.I. uses a minimax algorithm to predict the better moves.
+* Basically, it will test every possibility and see which one will take the A.I. closer to winning.
 
-* This code represents a A* algorithm.
-* It has methods to get the best positions from origin to goal.
 
-# Executing the binaries
+# Executing the game
 
-* In order to run you can just use one of the following commands
+* In order to run you need python installed in your machine.
+* Simply run the following command, and it will guide you on how to play.
 
 ```sh
-./renan.o
-
-# windows > renan.exe
+python3 main.py
 ```
 
-# Exectuion example
+# Execution example
 
 ```
-[
-  { x: -3, y: -15 }, { x: -2, y: -14 },
-  { x: -1, y: -13 }, { x: 0, y: -12 },
-  { x: 1, y: -11 },  { x: 2, y: -10 },
-  { x: 3, y: -9 },   { x: 4, y: -8 },
-  { x: 5, y: -7 },   { x: 6, y: -6 },
-  { x: 7, y: -5 },   { x: 8, y: -4 },
-  { x: 9, y: -3 },   { x: 10, y: -2 },
-  { x: 10, y: -1 },  { x: 10, y: 0 },
-  { x: 10, y: 1 },   { x: 10, y: 2 },
-  { x: 10, y: 3 },   { x: 10, y: 4 }
-]
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#   _______________  _________  _____  __________  ____ #
+#  /_  __/  _/ ___/ /_  __/ _ |/ ___/ /_  __/ __ \/ __/ #
+#   / / _/ // /__    / / / __ / /__    / / / /_/ / _/   #
+#  /_/ /___/\___/   /_/ /_/ |_\___/   /_/  \____/___/   #
+#                                                       #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                       #
+#                Welcome to Tic Tac Toe!                #
+#                                                       #
+#                By Alan W. and Renan R.                #
+#                                                       #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# ✨ You will play with an A.I.                         #
+# ⭕ Your symbol.                                       #
+# 🥲 You can never win.                                 #
+#                                                       #
+#                Press any key to play ...              #
+#                                                       #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+Want to be the first to start?[y/n]: y
+
+
+---------------
+| 0 || 1 || 2 |
+---------------
+| 3 || 4 || 5 |
+---------------
+| 6 || 7 || 8 |
+---------------
+
+
+Choose a position (number on board):
 ```
 
 
@@ -41,14 +68,11 @@ https://github.com/rricoldi/IA.git
 cd IA
 
 # change branch
-git checkout atividade-3
+git checkout trabalho-1
 
-# install deno
-curl -fsSL https://deno.land/x/install/install.sh | sh
-# (windows powershell) iwr https://deno.land/x/install/install.ps1 -useb | iex
-# (mac) brew install deno
+# install python3
+sudo apt-get install python3
 
-
-# run deno program with flags
-deno run src/index.ts
+# run main file
+python3 main.py
 ```
